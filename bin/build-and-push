@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 if [[ "$DOCKER_HUB_PAT" == "" ]]; then
   echo 'ERROR: Required env var DOCKER_HUB_PAT is empty'
