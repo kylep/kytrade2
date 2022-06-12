@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+if [[ "$DOCKER_HUB_PAT" == "" ]]; then
+  echo 'ERROR: Required env var DOCKER_HUB_PASSWORD is empty'
+  exit 1
+fi
+
+docker login --username="kpericak" --password="$DOCKER_HUB_PAT"
+docker-compose build
+docker push kpericak/kytrade2

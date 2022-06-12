@@ -1,0 +1,3 @@
+# For local development
+# To use: Copy to export.sh, populate, and run source export.sh
+export DOCKER_HUB_PAT=""
