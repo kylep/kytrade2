@@ -10,6 +10,8 @@ Open source, but I'd advise against using any of this without talking to me.
 - [GitHub Copy](https://github.com/kylep/kytrade2)
 - [Trello Board](https://trello.com/b/O9YyyHmo/kytrade2)
 
-## Scripts
+## Dev
 
-- `bin/build.sh`: Build the Docker image
+```
+docker-compose up kytrade-client
+```

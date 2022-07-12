@@ -3,3 +3,10 @@ services:
   kytrade:
     build: .
     image: kpericak/kytrade2
+  kytrade-client:
+    image: kpericak/kytrade2
+    ports:
+      - "8080:80"
+    expose:
+      - 8080
+    command: bin/start-client

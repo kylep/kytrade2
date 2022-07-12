@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+if [[ ! -d client ]]; then
+  echo "ERROR: Run from base dir"
+  exit 1
+fi
+
+# nginx
+nginx -g "daemon off;error_log /dev/stdout info;"
