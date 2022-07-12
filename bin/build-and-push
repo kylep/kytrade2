@@ -5,6 +5,10 @@ if [[ "$DOCKER_HUB_PAT" == "" ]]; then
   exit 1
 fi
 
-docker login --username="kpericak" --password="$DOCKER_HUB_PAT"
-docker-compose build
-docker push kpericak/kytrade2
+if [[ "$BUILD_IMAGE" == "true" ]]; then
+  docker login --username="kpericak" --password="$DOCKER_HUB_PAT"
+  docker-compose build
+  docker push kpericak/kytrade2
+else
+  echo "WARNING: Skipping image build and push because \$BUILD_IMAGE != \"true\""
+fi

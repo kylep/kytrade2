@@ -3,3 +3,4 @@
 export DOCKER_HUB_PAT=""
 export AWS_ACCESS_KEY_ID=""
 export AWS_SECRET_ACCESS_KEY=""
+export BUILD_IMAGE="true"  # GitLab runners that can build are expensive
