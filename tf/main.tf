@@ -156,14 +156,26 @@ resource "aws_subnet" "kytrade2-Subnet-Node-2" {
   }
 }
 
+/*
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_node_group
 resource "aws_eks_node_group" "kytrade2-EKS-Node-Group" {
   cluster_name = aws_eks_cluster.kytrade2-EKS-Cluster.name
   node_group_name = "kytrade2-EKS-Node-Group"
   node_role_arn = aws_iam_role.kytrade2-EKS-Node-Role.arn
+  disk_size = 25
+  instance_types = ["t3.small"]
+  remote_access {
+    ec2_ssh_key = "Kyle"
+  }
+  ami_type = "AL2_x86_64"
+  capacity_type = "SPOT"
+  #subnet_ids = [
+  #    aws_subnet.kytrade2-Subnet-Node-1.id,
+  #    aws_subnet.kytrade2-Subnet-Node-2.id,
+  #]
   subnet_ids = [
-      aws_subnet.kytrade2-Subnet-Node-1.id,
-      aws_subnet.kytrade2-Subnet-Node-2.id,
+      aws_subnet.kytrade2-Subnet-Public-1.id,
+      aws_subnet.kytrade2-Subnet-Public-2.id,
   ]
   scaling_config {
     desired_size = 1
@@ -179,6 +191,7 @@ resource "aws_eks_node_group" "kytrade2-EKS-Node-Group" {
   }
 }
 
+*/
 
 output "endpoint" {
     value = aws_eks_cluster.kytrade2-EKS-Cluster.endpoint

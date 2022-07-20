@@ -8,7 +8,7 @@ RUN apt-get update \
     curl \
     nginx \
     vim \
-    npm
+    npm \
 
 COPY image-files /
 

@@ -18,4 +18,18 @@ aws eks update-kubeconfig --region ca-central-1 --name kytrade2-EKS-Cluster
 
 # Verify cluster
 k get nodes
+
+```
+
+## Fix the config map
+```
+kubectl edit configmap aws-auth -n kube-system
+```
+go down to mapUsers and add the following (replace `[account_id]` with your Account ID)`
+
+```
+mapUsers: |
+  - userarn: arn:aws:iam::[account_id]:root
+    groups:
+    - system:masters
 ```
