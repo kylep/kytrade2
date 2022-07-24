@@ -6,5 +6,5 @@ if [[ ! -d client ]]; then
 fi
 
 # nginx
-echo "WARNING: DOING NOTHING (tailing /dev/null). Use start-client or start-api."
+echo "WARNING: API not yet implemented"
 tail -f /dev/null

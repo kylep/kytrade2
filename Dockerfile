@@ -8,8 +8,10 @@ RUN apt-get update \
     curl \
     nginx \
     vim \
-    npm \
+    npm
 
 COPY image-files /
 
-CMD bin/start
+RUN bin/build-client
+
+CMD bin/start-client

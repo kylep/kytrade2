@@ -23,10 +23,12 @@ k get nodes
 
 ## Fix the config map
 ```
+# get and save your user id
+aws sts get-caller-identity --query "Account" --output text
+# then
 kubectl edit configmap aws-auth -n kube-system
 ```
 go down to mapUsers and add the following (replace `[account_id]` with your Account ID)`
-
 ```
 mapUsers: |
   - userarn: arn:aws:iam::[account_id]:root

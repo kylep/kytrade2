@@ -35,28 +35,8 @@ Common labels
 */}}
 {{- define "kytrade2.labels" -}}
 helm.sh/chart: {{ include "kytrade2.chart" . }}
-{{ include "kytrade2.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
-{{- end }}
-
-{{/*
-Selector labels
-*/}}
-{{- define "kytrade2.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "kytrade2.name" . }}
-app.kubernetes.io/instance: {{ .Release.Name }}
-{{- end }}
-
-{{/*
-Create the name of the service account to use
-*/}}
-{{- define "kytrade2.serviceAccountName" -}}
-{{- if .Values.serviceAccount.create }}
-{{- default (include "kytrade2.fullname" .) .Values.serviceAccount.name }}
-{{- else }}
-{{- default "default" .Values.serviceAccount.name }}
-{{- end }}
 {{- end }}
