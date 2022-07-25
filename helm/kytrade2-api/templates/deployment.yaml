@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "kytrade2.fullname" . }}-api
+  name: {{ include "kytrade2.fullname" . }}
   labels:
     {{- include "kytrade2.labels" . | nindent 4 }}
 spec:

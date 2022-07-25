@@ -1,14 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kytrade2-client
+  name: {{ include "kytrade2.fullname" . }}
   labels:
     {{- include "kytrade2.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
+  selector:
+    matchLabels:
+      {{- include "kytrade2.selectorLabels" . | nindent 6 }}
   template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "kytrade2.selectorLabels" . | nindent 8 }}
     spec:
       containers:
         - name: {{ .Chart.Name }}

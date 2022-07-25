@@ -40,3 +40,11 @@ app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end }}
+
+{{/*
+Selector labels
+*/}}
+{{- define "kytrade2.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "kytrade2.name" . }}
+app.kubernetes.io/instance: {{ .Release.Name }}
+{{- end }}
