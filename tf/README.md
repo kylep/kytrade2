@@ -21,13 +21,22 @@ k get nodes
 
 ```
 
+## To Do:
+Implement the ALB/LNB controller so the ingress actually creates an ALB
+
 ## Fix the config map
+
+TODO: Why?
+https://docs.aws.amazon.com/eks/latest/userguide/aws-load-balancer-controller.html
+I've gotten that json file but I can't get it added as a managed policy because its too big
+
 ```
 # get and save your user id
 aws sts get-caller-identity --query "Account" --output text
 # then
 kubectl edit configmap aws-auth -n kube-system
 ```
+
 go down to mapUsers and add the following (replace `[account_id]` with your Account ID)`
 ```
 mapUsers: |
@@ -35,3 +44,4 @@ mapUsers: |
     groups:
     - system:masters
 ```
+

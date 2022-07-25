@@ -53,3 +53,18 @@ resource "aws_iam_role" "kytrade2-EKS-Node-Role" {
     app = "kytrade2"
   }
 }
+
+
+/*
+# Error: failed creating IAM Role (kytrade2-EKS-ALB-Controller-Role): LimitExceeded: Cannot exceed quota for ACLSizePerRole: 2048
+resource "aws_iam_role" "kytrade2-EKS-ALB-Controller-Role" {
+  name = "kytrade2-EKS-ALB-Controller-Role"
+  path = "/"
+  description = "Role to allow ALB ingress and NLB services on EKS"
+  assume_role_policy = file("${path.module}/eks-alb-nlb-controller-policy.json")
+  tags = {
+    Name = "kytrade2-EKS-ALB-Controller-Role"
+    app = "kytrade2"
+  }
+}
+*/
