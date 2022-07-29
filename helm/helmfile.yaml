@@ -1,0 +1,11 @@
+# kytrade app helmfile
+repositories: []
+
+releases:
+  - name: kytrade-client
+    chart: ./kytrade2-client
+    namespace: default
+
+  - name: kytrade-api
+    chart: ./kytrade2-api
+    namespace: default
